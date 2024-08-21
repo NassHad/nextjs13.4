@@ -20,28 +20,6 @@ export const metadata = {
     description: "A Next.js 14 company intranet",
 };
 
-function Header() {
-    return (
-        <header
-            style={{
-                display: "flex",
-                justifyContent: "space-between",
-                padding: 20,
-            }}
-        >
-            <h1>My App</h1>
-            <SignedIn>
-                {/* Mount the UserButton component */}
-                <UserButton />
-            </SignedIn>
-            <SignedOut>
-                {/* Signed out users get sign in button */}
-                <SignInButton />
-            </SignedOut>
-        </header>
-    );
-}
-
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -51,7 +29,6 @@ export default function RootLayout({
         <ClerkProvider afterSignOutUrl="/">
             <html lang="en">
                 <body className={inter.className}>
-                    <Header />
                     <Topbar />
                     <main>
                         <LeftSidebar />
