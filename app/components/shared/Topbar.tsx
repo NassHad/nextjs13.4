@@ -26,7 +26,7 @@ export default function Topbar() {
                                     alt="logout"
                                     width={24}
                                     height={24}
-                                ></Image>
+                                />
                             </div>
                         </SignOutButton>
                     </SignedIn>
