@@ -16,7 +16,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <ClerkProvider afterSignOutUrl="/">
+        <ClerkProvider afterSignOutUrl="/sign-in">
             <html lang="fr">
                 <body className={`${inter.className} bg-dark-1`}>
                     {children}

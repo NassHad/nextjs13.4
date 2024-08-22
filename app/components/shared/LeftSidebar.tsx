@@ -5,6 +5,7 @@ import { SignedIn, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { Suspense } from "react";
 
 export default function LeftSidebar() {
     const router = useRouter();
@@ -38,20 +39,24 @@ export default function LeftSidebar() {
                     );
                 })}
             </div>
-            <div className="mt-10 px-6">
-                <SignedIn>
-                    <SignOutButton redirectUrl="/">
-                        <div className="flex cursor-pointer gap-4 p-4">
-                            <Image
-                                src="/assets/logout.svg"
-                                alt="logout"
-                                width={24}
-                                height={24}
-                            />
-                            <p className="text-light-2 max-lg:hidden">Logout</p>
-                        </div>
-                    </SignOutButton>
-                </SignedIn>
+            <div className="mt-10 px-6 text-white">
+                <Suspense fallback={<p>Loading logOut...</p>}>
+                    <SignedIn>
+                        <SignOutButton redirectUrl="/">
+                            <div className="flex cursor-pointer gap-4 p-4">
+                                <Image
+                                    src="/assets/logout.svg"
+                                    alt="logout"
+                                    width={24}
+                                    height={24}
+                                />
+                                <p className="text-light-2 max-lg:hidden">
+                                    Logout
+                                </p>
+                            </div>
+                        </SignOutButton>
+                    </SignedIn>
+                </Suspense>
             </div>
         </section>
     );

@@ -27,10 +27,10 @@ export default function RootLayout({
 }>) {
     return (
         <ClerkProvider afterSignOutUrl="/">
-            <html lang="en">
+            <html lang="fr">
                 <body className={inter.className}>
                     <Topbar />
-                    <main>
+                    <main className="flex flex-row">
                         <LeftSidebar />
                         <section className="main-container">
                             <div className="w-full max-w-4xl">{children}</div>
